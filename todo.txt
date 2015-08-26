@@ -1,0 +1,5 @@
+1. support register call while the server is running
+2. test performance
+3. add auto test
+4. more error handling
+5. add restful http server interface
