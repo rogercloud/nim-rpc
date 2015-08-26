@@ -48,7 +48,6 @@ proc register*[T, U](rpc: var RpcServer, name: string, p: (proc(param: T, ret: v
     except:
       return packError(ErrorParam)
     var error = p(paramVal, retVal)
-    echo("ret value: " & $retVal & ", error: " & $error)
     return (pack(Correct), pack(error), pack(retVal))
   registerProc(rpc, name, hook)
 
@@ -82,7 +81,6 @@ proc processClient(rpc: RpcServer, client: AsyncSocket) {.async.} =
   while true:
     let command = await client.recvLine()
     if command == "":
-      echo("User close connection")
       return
 
     var unpackedCommand: string 
@@ -90,7 +88,6 @@ proc processClient(rpc: RpcServer, client: AsyncSocket) {.async.} =
     if not rpc.hasRegistered(unpackedCommand):
       await client.reportError(ErrorMethodNotRegistered)
 
-    echo("Process command: " & unpackedCommand)
     let param = await client.recvLine()
     await client.response(rpc.call(unpackedCommand, param))
 

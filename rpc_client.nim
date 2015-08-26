@@ -44,11 +44,9 @@ proc call* [T, U](client: RpcClient, name: string, param: T, ret: var U): State 
   client.socket.connect(client.address, client.port)
   client.sendLine(pack(name))
   client.sendLine(pack(param))
-  echo("send command: " & name)
 
   var state: State
   unpack(client.recvLine(), state)
-  echo("state: " & $state)
   
   if state != Correct:
     return state

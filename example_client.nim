@@ -1,6 +1,6 @@
 import rpc_client, rpc_type, net, asyncdispatch
 
-proc main {.async.} =
+proc main =
   var client = newRpcClient("127.0.0.1", Port(4343))
   var ret: int
   var state = client.call("add", (1, 2), ret)
@@ -9,4 +9,4 @@ proc main {.async.} =
   echo($state)
 
 if isMainModule == true:
-  asyncCheck main()
+  main()
