@@ -1,15 +1,16 @@
 import rpc_server, rpc_type, asyncnet, asyncdispatch, msgpack
 
-type
-  AddParam = object
-    v1: int
-    v2: int
-
-proc addV2(param: AddParam, ret: var int): int =
+# Define your remote proc
+# Remote porc must have two params, first is input, second is output (so it's var param).
+# Return value must be an int as error code, for example, 0 for success, -1 for error.
+proc remoteAdd(param: tuple[v1: int, v2: int], ret: var int): int =
   ret = param.v1 + param.v2
   result = 0
 
-var server = newRpcServer("127.0.0.1", Port(4343))
-server.register("add", addV2)
-asyncCheck server.run()
+# Create the server
+# Currently procs must be resgistered before rpc server starts running.
+# Running time proc register will be added in later version
+var server = newRpcServer("127.0.0.1", Port(4343)) # send request to 127.0.0.1:4343
+server.register("add", remoteAdd) # register remoteAdd to RPC server binding name "add"
+asyncCheck server.run() # run RPC server
 runForever()
