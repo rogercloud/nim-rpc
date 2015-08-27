@@ -52,6 +52,10 @@ proc call* [T, U](client: RpcClient, name: string, param: T, ret: var U): State 
     return state
 
   var error: int
-  unpack(client.recvLine(), error)
-  unpack(client.recvLine(), ret)
+  try:
+    unpack(client.recvLine(), error)
+    unpack(client.recvLine(), ret)
+  except:
+    return ErrorRet
+
   client.socket.close()
