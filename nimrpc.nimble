@@ -1,9 +1,10 @@
 [Package]
-name        = "nim-rpc"
+name        = "nimrpc"
 version     = "0.1.0"
 author      = "Roger Shi"
 description = "RPC implementation for Nim based on msgpack4nim created by @jangko."
 license     = "MIT"
+srcDir      = "src"
 
 [Deps]
 Requires:   """

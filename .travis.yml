@@ -12,6 +12,7 @@ before_script:
   - export PATH=`pwd`/Nim/bin:$PATH
 
 script:
+  - cd example
   - nim c example_client.nim
   - nim c example_server.nim
 

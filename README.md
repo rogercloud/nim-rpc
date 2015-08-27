@@ -8,7 +8,7 @@ RPC implementation for Nim based on [msgpack4nim](https://github.com/jangko/msgp
 ### RPC Server
     
 ```nimrod
-import rpc_server, rpc_type, asyncnet, asyncdispatch, msgpack
+import nimrpc/rpc_server, nimrpc/rpc_type, asyncnet, asyncdispatch, msgpack
 
 # Define your remote proc
 # Remote porc must have two params, first is input, second is output (so it's var param).
@@ -29,7 +29,7 @@ runForever()
 ### RPC Client
 
 ```nimrod
-import rpc_client, rpc_type, net, asyncdispatch
+import nimrpc/rpc_client, nimrpc/rpc_type, net, asyncdispatch
 
 proc main =
   var client = newRpcClient("127.0.0.1", Port(4343)) # client send request to 127.0.0.1:4343

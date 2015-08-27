@@ -1,4 +1,4 @@
-import rpc_client, rpc_type, net, asyncdispatch
+import nimrpc/rpc_client, nimrpc/rpc_type, net, asyncdispatch
 
 proc main =
   var client = newRpcClient("127.0.0.1", Port(4343)) # client send request to 127.0.0.1:4343
