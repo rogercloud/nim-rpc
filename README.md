@@ -3,6 +3,13 @@
 
 RPC implementation for Nim based on [msgpack4nim](https://github.com/jangko/msgpack4nim) created by @jangko.
 
+## Install
+### Pre Requirement
+[Nimble package manager](https://github.com/nim-lang/nimble) installed
+
+### Install Command
+    nimble install nimrpc
+
 ## Example
 
 ### RPC Server
