@@ -1,4 +1,4 @@
-import nimrpc/rpc_server, nimrpc/rpc_type, asyncnet, asyncdispatch, msgpack
+import nimrpc/rpc_server, nimrpc/rpc_type, asyncnet, asyncdispatch, msgpack4nim
 
 # Define your remote proc
 # Remote porc must have two params, first is input, second is output (so it's var param).

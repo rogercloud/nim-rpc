@@ -2,10 +2,10 @@ os:
   - linux
 
 env:
-  - BRANCH="master"
+  - BRANCH="devel"
 
 install:
-  - git clone -b $BRANCH git://github.com/Araq/Nim.git; cd Nim; git clone -b $BRANCH --depth 1 git://github.com/nim-lang/csources; cd csources && sh build.sh; cd ..; bin/nim c koch; ./koch boot -d:release; cd ..; export PATH=`pwd`/Nim/bin:$PATH
+  - git clone -b $BRANCH git://github.com/nim-lang/Nim.git; cd Nim; git clone -b master --depth 1 git://github.com/nim-lang/csources; cd csources && sh build.sh; cd ..; bin/nim c koch; ./koch boot -d:release; cd ..; export PATH=`pwd`/Nim/bin:$PATH
   - git clone https://github.com/nim-lang/nimble.git; cd nimble; yes | nim c -r src/nimble install; cd ..; export PATH=~/.nimble/bin:$PATH; nimble update; nimble install msgpack4nim
 
 before_script:

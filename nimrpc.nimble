@@ -9,7 +9,7 @@ srcDir      = "src"
 [Deps]
 Requires:   """
 
-nim >= 0.11.2
+nim >= 0.18.1
 msgpack4nim >= 0.1.2
 
 
