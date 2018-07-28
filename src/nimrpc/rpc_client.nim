@@ -1,4 +1,4 @@
-import net, asyncdispatch, msgpack, tables
+import net, asyncdispatch, msgpack4nim, tables
 import rpc_type
 
 type
